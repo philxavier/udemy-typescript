@@ -1,6 +1,6 @@
 // Code goes here!
 class Department {
-  private employees: string[] = [];
+  protected employees: string[] = [];
 
   constructor(private readonly id: string, public name: string) {}
 
@@ -42,8 +42,25 @@ it.printEmployeeInformation();
 console.log(it);
 
 class AccountingDepartment extends Department {
+  private lastReport: string;
+
+  get mostRecentReport() {
+    if (this.lastReport) {
+      return this.lastReport;
+    }
+    throw new Error("No report found");
+  }
+
+  set mostRecentReport(value: string) {
+    if (!value) {
+      throw new Error("Please pass in a valid value");
+    }
+    this.addReport(value);
+  }
+
   constructor(id: string, private reports: string[]) {
     super(id, "IT");
+    this.lastReport = reports[0];
   }
 
   addEmployee(name: string) {
@@ -55,6 +72,7 @@ class AccountingDepartment extends Department {
 
   addReport(text: string) {
     this.reports.push(text);
+    this.lastReport = text;
   }
 
   printReports() {
@@ -64,6 +82,10 @@ class AccountingDepartment extends Department {
 
 const accounting = new AccountingDepartment("d2", []);
 
+accounting.mostRecentReport = "";
+
 accounting.addReport("Something went wrong ...");
+accounting.addEmployee("Max");
+accounting.addEmployee("test");
 
 accounting.printReports();
