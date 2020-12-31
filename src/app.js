@@ -1,11 +1,12 @@
 // Code goes here!
 var Department = /** @class */ (function () {
-    function Department(n) {
+    function Department(id, name) {
+        this.id = id;
+        this.name = name;
         this.employees = [];
-        this.name = n;
     }
     Department.prototype.describe = function () {
-        console.log("Department: " + this.name);
+        console.log("Department(" + this.id + "): " + this.name);
     };
     Department.prototype.addEmployee = function (employee) {
         this.employees.push(employee);
@@ -16,7 +17,7 @@ var Department = /** @class */ (function () {
     };
     return Department;
 }());
-var acccounting = new Department("Human Res");
+var acccounting = new Department("d1", "Human Res");
 acccounting.addEmployee("Max");
 acccounting.addEmployee("Manu");
 acccounting.addEmployee("Anne");
