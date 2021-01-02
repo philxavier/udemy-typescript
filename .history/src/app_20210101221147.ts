@@ -1,13 +1,8 @@
 // Code goes here!
 class Department {
-  static fiscalYear = 2020;
   protected employees: string[] = [];
 
   constructor(private readonly id: string, public name: string) {}
-
-  static createEmployee(name: string) {
-    return { name: name };
-  }
 
   describe() {
     console.log("Department: " + this.id + " " + this.name);
@@ -35,9 +30,6 @@ class ITDepartment extends Department {
     this.admins = admins;
   }
 }
-
-const employee1 = Department.createEmployee("Max");
-console.log(employee1, Department.fiscalYear);
 
 const it = new ITDepartment("d1", ["Max"]);
 it.addEmployee("Max");
@@ -90,9 +82,7 @@ class AccountingDepartment extends Department {
 
 const accounting = new AccountingDepartment("d2", []);
 
-accounting.mostRecentReport = "cool";
-
-console.log(accounting.mostRecentReport);
+accounting.mostRecentReport = "";
 
 accounting.addReport("Something went wrong ...");
 accounting.addEmployee("Max");

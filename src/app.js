@@ -2,7 +2,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -18,6 +18,9 @@ var Department = /** @class */ (function () {
         this.name = name;
         this.employees = [];
     }
+    Department.createEmployee = function (name) {
+        return { name: name };
+    };
     Department.prototype.describe = function () {
         console.log("Department: " + this.id + " " + this.name);
     };
@@ -32,6 +35,7 @@ var Department = /** @class */ (function () {
         console.log(this.employees.length);
         console.log(this.employees);
     };
+    Department.fiscalYear = 2020;
     return Department;
 }());
 var ITDepartment = /** @class */ (function (_super) {
@@ -43,6 +47,8 @@ var ITDepartment = /** @class */ (function (_super) {
     }
     return ITDepartment;
 }(Department));
+var employee1 = Department.createEmployee("Max");
+console.log(employee1, Department.fiscalYear);
 var it = new ITDepartment("d1", ["Max"]);
 it.addEmployee("Max");
 it.addEmployee("Manu");
@@ -72,7 +78,7 @@ var AccountingDepartment = /** @class */ (function (_super) {
             }
             this.addReport(value);
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     AccountingDepartment.prototype.addEmployee = function (name) {
@@ -91,7 +97,8 @@ var AccountingDepartment = /** @class */ (function (_super) {
     return AccountingDepartment;
 }(Department));
 var accounting = new AccountingDepartment("d2", []);
-accounting.mostRecentReport = "";
+accounting.mostRecentReport = "cool";
+console.log(accounting.mostRecentReport);
 accounting.addReport("Something went wrong ...");
 accounting.addEmployee("Max");
 accounting.addEmployee("test");

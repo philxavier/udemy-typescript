@@ -1,6 +1,5 @@
 // Code goes here!
 class Department {
-  static fiscalYear = 2020;
   protected employees: string[] = [];
 
   constructor(private readonly id: string, public name: string) {}
@@ -35,9 +34,6 @@ class ITDepartment extends Department {
     this.admins = admins;
   }
 }
-
-const employee1 = Department.createEmployee("Max");
-console.log(employee1, Department.fiscalYear);
 
 const it = new ITDepartment("d1", ["Max"]);
 it.addEmployee("Max");
