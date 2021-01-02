@@ -1,5 +1,5 @@
 // Code goes here!
-abstract class Department {
+class Department {
   static fiscalYear = 2020;
   protected employees: string[] = [];
 
@@ -9,7 +9,9 @@ abstract class Department {
     return { name: name };
   }
 
-  abstract describe(this: Department): void;
+  describe() {
+    console.log("Department: " + this.id + " " + this.name);
+  }
 
   addEmployee(employee: string) {
     this.employees.push(employee);
@@ -31,10 +33,6 @@ class ITDepartment extends Department {
   constructor(id: string, admins: string[]) {
     super(id, "IT");
     this.admins = admins;
-  }
-
-  describe() {
-    console.log("IT Department- ID: ", this.id);
   }
 }
 
@@ -104,5 +102,4 @@ accounting.addReport("Something went wrong ...");
 accounting.addEmployee("Max");
 accounting.addEmployee("test");
 
-// accounting.printReports();
-accounting.describe();
+accounting.printReports();

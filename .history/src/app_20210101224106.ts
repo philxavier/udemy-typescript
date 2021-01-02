@@ -32,10 +32,6 @@ class ITDepartment extends Department {
     super(id, "IT");
     this.admins = admins;
   }
-
-  describe() {
-    console.log("IT Department- ID: ", this.id);
-  }
 }
 
 const employee1 = Department.createEmployee("Max");

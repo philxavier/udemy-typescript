@@ -21,9 +21,6 @@ var Department = /** @class */ (function () {
     Department.createEmployee = function (name) {
         return { name: name };
     };
-    Department.prototype.describe = function () {
-        console.log("Department: " + this.id + " " + this.name);
-    };
     Department.prototype.addEmployee = function (employee) {
         this.employees.push(employee);
         if (name === "Max") {
@@ -45,6 +42,9 @@ var ITDepartment = /** @class */ (function (_super) {
         _this.admins = admins;
         return _this;
     }
+    ITDepartment.prototype.describe = function () {
+        console.log("IT Department- ID: ", this.id);
+    };
     return ITDepartment;
 }(Department));
 var employee1 = Department.createEmployee("Max");
@@ -81,6 +81,9 @@ var AccountingDepartment = /** @class */ (function (_super) {
         enumerable: true,
         configurable: true
     });
+    AccountingDepartment.prototype.describe = function () {
+        console.log("accounting deparment - id: " + this.id);
+    };
     AccountingDepartment.prototype.addEmployee = function (name) {
         if (name === "max") {
             return;
@@ -102,4 +105,5 @@ console.log(accounting.mostRecentReport);
 accounting.addReport("Something went wrong ...");
 accounting.addEmployee("Max");
 accounting.addEmployee("test");
-accounting.printReports();
+// accounting.printReports();
+accounting.describe();

@@ -9,7 +9,9 @@ abstract class Department {
     return { name: name };
   }
 
-  abstract describe(this: Department): void;
+  abstract describe(this: Department) {
+    // console.log("Department: " + this.id + " " + this.name);
+  }
 
   addEmployee(employee: string) {
     this.employees.push(employee);
@@ -31,10 +33,6 @@ class ITDepartment extends Department {
   constructor(id: string, admins: string[]) {
     super(id, "IT");
     this.admins = admins;
-  }
-
-  describe() {
-    console.log("IT Department- ID: ", this.id);
   }
 }
 
