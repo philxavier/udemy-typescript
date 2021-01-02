@@ -55,7 +55,7 @@ it.addEmployee("Manu");
 it.addEmployee("Anne");
 it.describe();
 it.name = "NEW NAME";
-it.printEmployeeInformation();
+// it.printEmployeeInformation();
 console.log(it);
 var AccountingDepartment = /** @class */ (function (_super) {
     __extends(AccountingDepartment, _super);
@@ -81,6 +81,13 @@ var AccountingDepartment = /** @class */ (function (_super) {
         enumerable: true,
         configurable: true
     });
+    AccountingDepartment.getInstance = function () {
+        if (this.instance) {
+            return this.instance;
+        }
+        this.instance = new AccountingDepartment("d2", []);
+        return this.instance;
+    };
     AccountingDepartment.prototype.describe = function () {
         console.log("accounting deparment - id: " + this.id);
     };
@@ -99,7 +106,8 @@ var AccountingDepartment = /** @class */ (function (_super) {
     };
     return AccountingDepartment;
 }(Department));
-var accounting = new AccountingDepartment("d2", []);
+var accounting = AccountingDepartment.getInstance();
+var accounting2 = AccountingDepartment.getInstance();
 accounting.mostRecentReport = "cool";
 console.log(accounting.mostRecentReport);
 accounting.addReport("Something went wrong ...");
