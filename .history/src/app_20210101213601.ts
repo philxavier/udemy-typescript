@@ -84,8 +84,6 @@ const accounting = new AccountingDepartment("d2", []);
 
 accounting.mostRecentReport = "cool";
 
-console.log(accounting.mostRecentReport);
-
 accounting.addReport("Something went wrong ...");
 accounting.addEmployee("Max");
 accounting.addEmployee("test");
