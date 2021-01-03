@@ -1,46 +1,29 @@
-// interface Person {
-//   name: string;
-//   age: number;
-
-//   greet(phrase: string): void;
-// }
-
-interface AddFn {
-  (a: number, b: number): number;
-}
-
-let add: AddFn;
-
-add = (n1: number, n2: number) => {
-  return n1 + n2;
+type Admin = {
+  name: string;
+  privileges: string[];
 };
 
-// type AddFn = (a: number, b: number) => number;
-
-interface Named {
-  readonly name: string;
-  outputName?: string;
-}
-
-interface Greetable extends Named {
-  greet(phrase: string): void;
-}
-
-class Person implements Greetable {
+type Employee = {
   name: string;
-  age = 30;
+  startDate: Date;
+};
 
-  constructor(n: string) {
-    this.name = n;
-  }
+// interface Admin {
+//   name: string;
+//   privileges: string[];
+// }
 
-  greet(phrase: string) {
-    console.log(phrase + " " + this.name);
-  }
-}
+// interface Employee {
+//   name: string;
+//   startDate: Date;
+// }
 
-let user1: Greetable;
+// interface ElevatedEmployee extends Employee, Admin {}
 
-user1 = new Person("Max");
+type ElevatedEmployee = Admin & Employee;
 
-user1.greet("hi there I am");
+const e1: ElevatedEmployee = {
+  name: "Max",
+  privileges: ["create-server"],
+  startDate: new Date(),
+};

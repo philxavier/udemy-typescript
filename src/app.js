@@ -1,20 +1,5 @@
-// interface Person {
-//   name: string;
-//   age: number;
-var add;
-add = function (n1, n2) {
-    return n1 + n2;
+var e1 = {
+    name: "Max",
+    privileges: ["create-server"],
+    startDate: new Date()
 };
-var Person = /** @class */ (function () {
-    function Person(n) {
-        this.age = 30;
-        this.name = n;
-    }
-    Person.prototype.greet = function (phrase) {
-        console.log(phrase + " " + this.name);
-    };
-    return Person;
-}());
-var user1;
-user1 = new Person("Max");
-user1.greet("hi there I am");
