@@ -5,6 +5,18 @@
 //   greet(phrase: string): void;
 // }
 
+interface AddFn {
+  (a: number, b: number): number;
+}
+
+let add: AddFn;
+
+add = (n1: number, n2: number) => {
+  return n1 + n2;
+};
+
+// type AddFn = (a: number, b: number) => number;
+
 interface Named {
   readonly name: string;
 }
@@ -29,6 +41,5 @@ class Person implements Greetable {
 let user1: Greetable;
 
 user1 = new Person("Max");
-user1.name = "manu";
 
 user1.greet("hi there I am");

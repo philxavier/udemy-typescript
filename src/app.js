@@ -1,6 +1,10 @@
 // interface Person {
 //   name: string;
 //   age: number;
+var add;
+add = function (n1, n2) {
+    return n1 + n2;
+};
 var Person = /** @class */ (function () {
     function Person(n) {
         this.age = 30;
@@ -13,5 +17,4 @@ var Person = /** @class */ (function () {
 }());
 var user1;
 user1 = new Person("Max");
-user1.name = "manu";
 user1.greet("hi there I am");
