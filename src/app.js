@@ -9,6 +9,8 @@ function add(a, b) {
     }
     return a + b;
 }
+var result = add("Max", "Schwarz");
+result.split(" ");
 function printEmployeeInformation(emp) {
     console.log("Name: " + emp.name);
     if ("privileges" in emp) {
