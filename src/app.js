@@ -63,3 +63,7 @@ moveAnimal({ type: "bird", flyingSpeed: 10 });
 // );
 var userInputElement = document.getElementById("user-input");
 userInputElement.value = "Hi there";
+var errorBag = {
+    email: "not a valid email",
+    username: "Must start with a capital character!"
+};
