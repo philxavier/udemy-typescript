@@ -43,6 +43,14 @@ const result = add("Max", "Schwarz");
 
 result.split(" ");
 
+const fetchedUserData = {
+  id: "u1",
+  name: "Max",
+  job: { title: "CEO", description: "My own company" },
+};
+
+console.log(fetchedUserData.job.title);
+
 type UnknownEmployee = Employee | Admin;
 
 function printEmployeeInformation(emp: UnknownEmployee) {
@@ -54,8 +62,6 @@ function printEmployeeInformation(emp: UnknownEmployee) {
     console.log("Privileges: " + emp.startDate);
   }
 }
-
-printEmployeeInformation(e1);
 
 class Car {
   drive() {
@@ -129,3 +135,9 @@ const errorBag: ErrorContainer = {
   email: "not a valid email",
   username: "Must start with a capital character!",
 };
+
+const userInput = undefined;
+
+const storedDate = userInput ?? "DEFAULT";
+
+console.log(storedDate);

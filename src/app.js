@@ -11,6 +11,12 @@ function add(a, b) {
 }
 var result = add("Max", "Schwarz");
 result.split(" ");
+var fetchedUserData = {
+    id: "u1",
+    name: "Max",
+    job: { title: "CEO", description: "My own company" }
+};
+console.log(fetchedUserData.job.title);
 function printEmployeeInformation(emp) {
     console.log("Name: " + emp.name);
     if ("privileges" in emp) {
@@ -20,7 +26,6 @@ function printEmployeeInformation(emp) {
         console.log("Privileges: " + emp.startDate);
     }
 }
-printEmployeeInformation(e1);
 var Car = /** @class */ (function () {
     function Car() {
     }
@@ -69,3 +74,6 @@ var errorBag = {
     email: "not a valid email",
     username: "Must start with a capital character!"
 };
+var userInput = undefined;
+var storedDate = (userInput !== null && userInput !== void 0 ? userInput : "DEFAULT");
+console.log(storedDate);
